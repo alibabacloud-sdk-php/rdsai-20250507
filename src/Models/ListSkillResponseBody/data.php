@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $activeVersionId;
+
+    /**
+     * @var string
+     */
+    public $category;
+
+    /**
      * @var mixed[]
      */
     public $content;
@@ -31,7 +41,22 @@ class data extends Model
     /**
      * @var string
      */
+    public $displayName;
+
+    /**
+     * @var string
+     */
+    public $icon;
+
+    /**
+     * @var string
+     */
     public $id;
+
+    /**
+     * @var bool
+     */
+    public $isDeleted;
 
     /**
      * @var string
@@ -41,20 +66,37 @@ class data extends Model
     /**
      * @var string
      */
+    public $scope;
+
+    /**
+     * @var string
+     */
     public $skillType;
+
+    /**
+     * @var string
+     */
+    public $slug;
 
     /**
      * @var string
      */
     public $updatedAt;
     protected $_name = [
+        'activeVersionId' => 'ActiveVersionId',
+        'category' => 'Category',
         'content' => 'Content',
         'createdAt' => 'CreatedAt',
         'dbtypes' => 'Dbtypes',
         'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'icon' => 'Icon',
         'id' => 'Id',
+        'isDeleted' => 'IsDeleted',
         'name' => 'Name',
+        'scope' => 'Scope',
         'skillType' => 'SkillType',
+        'slug' => 'Slug',
         'updatedAt' => 'UpdatedAt',
     ];
 
@@ -72,6 +114,14 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->activeVersionId) {
+            $res['ActiveVersionId'] = $this->activeVersionId;
+        }
+
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
+
         if (null !== $this->content) {
             if (\is_array($this->content)) {
                 $res['Content'] = [];
@@ -100,16 +150,36 @@ class data extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
+        }
+
+        if (null !== $this->icon) {
+            $res['Icon'] = $this->icon;
+        }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->isDeleted) {
+            $res['IsDeleted'] = $this->isDeleted;
         }
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
 
+        if (null !== $this->scope) {
+            $res['Scope'] = $this->scope;
+        }
+
         if (null !== $this->skillType) {
             $res['SkillType'] = $this->skillType;
+        }
+
+        if (null !== $this->slug) {
+            $res['Slug'] = $this->slug;
         }
 
         if (null !== $this->updatedAt) {
@@ -127,6 +197,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActiveVersionId'])) {
+            $model->activeVersionId = $map['ActiveVersionId'];
+        }
+
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
+
         if (isset($map['Content'])) {
             if (!empty($map['Content'])) {
                 $model->content = [];
@@ -155,16 +233,36 @@ class data extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
+        }
+
+        if (isset($map['Icon'])) {
+            $model->icon = $map['Icon'];
+        }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+
+        if (isset($map['IsDeleted'])) {
+            $model->isDeleted = $map['IsDeleted'];
         }
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
 
+        if (isset($map['Scope'])) {
+            $model->scope = $map['Scope'];
+        }
+
         if (isset($map['SkillType'])) {
             $model->skillType = $map['SkillType'];
+        }
+
+        if (isset($map['Slug'])) {
+            $model->slug = $map['Slug'];
         }
 
         if (isset($map['UpdatedAt'])) {
